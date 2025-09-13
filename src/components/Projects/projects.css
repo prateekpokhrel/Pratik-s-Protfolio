@@ -1,0 +1,105 @@
+/* === Projects Section === */
+#projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  color: white;
+  text-align: center;
+}
+
+/* Title */
+.projectsTitle {
+    margin: 1.5rem 0;
+    font-size: 3rem;
+    font-weight: bold;
+    color: purple;  /* same as tools title */
+    letter-spacing: 1.5px;
+    text-transform: none; /* remove uppercase if you want same look */
+}
+
+/* Description */
+.projectsDesc {
+  font-size: 1.1rem;
+  font-weight: 400;
+  max-width: 800px;
+  margin-bottom: 50px;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+/* Project Bars Container */
+.projectsBars {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Each Project Card */
+.projectsBar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectsBar:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px purple;
+}
+
+/* Project Image */
+.projectsBarImg {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  padding: 5px;
+  background: #111;
+  box-shadow: 0 0 10px white, 0 0 15px white;
+}
+
+/* Text Section */
+.projectsBarText {
+  text-align: left;
+  flex: 1;
+}
+
+.projectsBarText h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color:white;
+}
+
+.projectsBarText p {
+  font-size: 1rem;
+  color: #b3b3b3;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+/* Project Link Button */
+.projectLink {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111;
+  background: purple;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.projectLink:hover {
+  background: white;
+  color: black;
+}

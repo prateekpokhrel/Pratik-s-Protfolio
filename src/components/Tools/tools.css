@@ -1,0 +1,96 @@
+/* === Section Container === */
+#tools {
+    padding: 5rem 2rem;   /* tall section */
+    width: 100%;
+    max-width: 65rem;     /* keep same width */
+    margin: 0 auto;
+    text-align: center;
+    color: #f5f5f5;
+    min-height: 100vh;   /* full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: black; */
+    /* background removed */
+}
+
+/* === Title === */
+.toolsTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #b300b3;
+}
+
+/* === Subtitle === */
+.toolsDesc {
+    font-size: 1.3rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+}
+
+/* === Tools Grid === */
+.toolsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* === Tool Card === */
+.toolCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.toolImg {
+    width: 80px;
+    height: 80px;
+    object-fit: fit contain;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.toolLabel {
+    font-size: 1rem;
+    color: #ddd;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* === Hover Effects === */
+.toolCard:hover {
+    transform: scale(1.15);
+}
+
+.toolCard:hover .toolImg {
+    filter: grayscale(0%);
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(128, 0, 255, 0.8);
+    border-radius: 14px;
+}
+
+.toolCard:hover .toolLabel {
+    opacity: 1;
+    color: #fff;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    .toolsTitle {
+        font-size: 2.3rem;
+    }
+    .toolImg {
+        width: 65px;
+        height: 65px;
+    }
+    .toolLabel {
+        font-size: 0.9rem;
+    }
+}

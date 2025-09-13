@@ -1,0 +1,117 @@
+/* === Contact Page Container === */
+#contact {
+    min-height: calc(100vh - 5rem);
+    width: 100%;
+    max-width: 900px;            /* match the width of other sections */
+    margin: 0 auto;              /* center horizontally */
+    text-align: center;
+    display: flex;
+    background-color: black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    color: #f5f5f5;
+}
+
+/* === Title === */
+.contactPageTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: purple;
+}
+
+/* === Contact Description === */
+.contactDesc {
+    padding: 2rem;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #ccc;
+    max-width: 100%;             /* allow description to fill container */
+    max-block-size: 50rem;
+}
+
+/* === Form Section === */
+.contactForm {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;                /* fill container width */
+    max-width: 600px;           /* a bit smaller for form readability */
+    gap: 1rem;
+}
+
+/* === Inputs and Textarea === */
+.name, .email, .msg {
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 0.5rem;
+    background: #2c2c2c;
+    transition: border 0.3s ease, background 0.3s ease;
+}
+
+.name:focus, .email:focus, .msg:focus {
+    outline: none;
+    border: 1px solid #0080ff;
+    background: #333;
+}
+
+/* === Submit Button === */
+.submitBtn {
+    background: linear-gradient(135deg, #ff0400, #0022ff);
+    color: #eae7e7;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 3rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: auto;
+}
+
+.submitBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0.5rem 1rem rgba(130, 7, 15, 0.772);
+}
+
+/* === Links (Social Icons) === */
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 0.7rem;
+}
+
+.link {
+    object-fit: cover;
+    height: fit-content;
+    
+    width: 3rem;
+    border-radius: 55%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%);
+}
+
+.link:hover {
+    transform: scale(1.2);
+    filter: grayscale(0%);
+}
+
+/* === Responsive Enhancements === */
+@media (max-width: 600px) {
+    .contactPageTitle {
+        font-size: 2.2rem;
+    }
+
+    .submitBtn {
+        width: 100%;
+    }
+}
+
+/* === End of Contact Page Styles === */
