@@ -10,8 +10,11 @@ const Navbar = () => {
 
   const closeMenu = () => setShowMenu(false);
 
+  const sections = ['home', 'about', 'education', 'projects', 'certificates', 'tools', 'contact'];
+
   return (
     <nav className="navbar" role="navigation" aria-label="Main navigation">
+      {/* Logo */}
       <img
         src={logo}
         alt="Logo"
@@ -25,7 +28,7 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="desktopMenu">
-        {['home', 'about', 'education', 'projects', 'tools', 'contact'].map((section) => (
+        {sections.map((section) => (
           <Link
             key={section}
             activeClass="active"
@@ -41,9 +44,6 @@ const Navbar = () => {
         ))}
       </div>
 
-
-      
-
       {/* Contact Button */}
       <button
         className="desktopMenuBtn"
@@ -55,8 +55,6 @@ const Navbar = () => {
         <img src={contactImg} alt="Contact" className="desktopMenuImg" />
         Contact Me
       </button>
-
-
 
       {/* Mobile Menu Icon */}
       <img
@@ -71,7 +69,7 @@ const Navbar = () => {
       {/* Mobile Nav Menu */}
       {showMenu && (
         <div className="navMenu" role="menu">
-          {['home', 'about', 'education', 'projects', 'tools', 'contact'].map((section) => (
+          {sections.map((section) => (
             <Link
               key={section}
               activeClass="active"

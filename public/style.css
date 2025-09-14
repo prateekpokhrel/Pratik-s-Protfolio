@@ -1,18 +1,16 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing : border-box;
-    text-decoration: none;
-    background: transparent;
-    font-family: Georgia, serif;
-    
-}
-
-body {
-    
-    background: black;
-    color: white;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
+*
+{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing : border-box; 
+    text-decoration: none; 
+    background: transparent; 
+    font-family: Georgia, serif; 
+} 
+body 
+{ 
+    background: black; 
+    color: white; 
+    overflow-x: hidden; 
+    overflow-y: scroll; 
+} 
