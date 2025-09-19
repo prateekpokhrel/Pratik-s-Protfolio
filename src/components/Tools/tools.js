@@ -3,18 +3,18 @@ import React from 'react';
 import './tools.css';
 
 // Tech & Tools Icons
-import vscodeIcon from '../../assets/vscode.jpeg';
+import vscodeIcon from '../../assets/vscode.png';
 import gradleIcon from '../../assets/gra.png';
-import langchainIcon from '../../assets/lang.jpg';
-import playhtIcon from '../../assets/play.jpeg';
-import githubIcon from '../../assets/github.jpg';
+import langchainIcon from '../../assets/lang.png';
+import playhtIcon from '../../assets/play.png';
+import githubIcon from '../../assets/github.png';
 import huggingfaceIcon from '../../assets/hug.png';
 import htmlIcon from '../../assets/html.png';
 import cssIcon from '../../assets/css.png';
 import javaIcon from '../../assets/java.png';
 import sqlIcon from '../../assets/sql.png';
 import pythonIcon from '../../assets/python.png';
-import intellji from '../../assets/int.jpeg';
+import intellji from '../../assets/inti.png';
 import c from '../../assets/c.png';
 
 const Tools = () => {

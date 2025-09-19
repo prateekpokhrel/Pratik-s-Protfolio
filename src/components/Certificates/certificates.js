@@ -9,7 +9,7 @@ import Cert6 from '../../assets/html-css.png';
 import Cert7 from '../../assets/hacker-rank-sql.png';
 import Cert8 from '../../assets/hacker-rank-problem-solving.png';
 import Cert9 from '../../assets/react-hooks.png';
-
+import Cert10 from '../../assets/algo.png';
 const Certificates = () => {
     return (
         <section id="certificates">
@@ -58,15 +58,15 @@ const Certificates = () => {
                     </div>
                 </div>
 
-                <div className="certificatesBar">
-                    <img src={Cert3} alt="Generative AI Workshop Certificate" className="certificatesBarImg" />
+                 <div className="certificatesBar">
+                    <img src={Cert7} alt="HackerRank SQL Certificate" className="certificatesBarImg" />
                     <div className="certificatesBarText">
-                        <h2>Generative AI Workshop</h2>
+                        <h2>HackerRank SQL Certificate</h2>
                         <p>
-                            Completed a hands-on workshop on Generative AI conducted by NxtWave, where I built an AI chatbot project titled <em>The Aspiring Scientist Chatbot</em>.
+                            Completed HackerRank’s SQL skills certification, demonstrating strong query writing and database management capabilities.
                         </p>
                         <a
-                            href="https://www.ccbp.in/ai-workshop-certificate?com=1740CY52LD?utm_source=whatsapp&utm_campaign=4.0-tribe-academy-ai-workshop-certificate&utm_medium=message"
+                            href="https://www.hackerrank.com/certificates/iframe/77ccb928d068"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="projectLink"
@@ -77,54 +77,50 @@ const Certificates = () => {
                 </div>
 
                 <div className="certificatesBar">
+                    <img src={Cert9} alt="React Hooks Certificate" className="certificatesBarImg" />
+                    <div className="certificatesBarText">
+                        <h2>GreatStack: React Hooks Certification</h2>
+                        <p>
+                            Completed an in-depth course on React Hooks, focusing on state management, effects, and building functional React components.
+                        </p>
+                        <a
+                            href="https://quiz.greatstack.dev/validate/rhkss7klTDweUOTfw6fJCcAFmbGfBoE3"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projectLink"
+                        >
+                            View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                 <div className="certificatesBar">
                     <img src={Cert4} alt="Agentic AI Workshop Certificate" className="certificatesBarImg" />
                     <div className="certificatesBarText">
                         <h2>Agentic AI Development Workshop</h2>
                         <p>
                             Completed a 7-day Agentic AI workshop conducted by UiPath, where I developed and deployed a <em>Resume Analyzer</em> AI automation project using autonomous agent principles.
                         </p>
-                        <button className="projectLink" disabled>
+                        <a
+                            href="https://drive.google.com/file/d/1DEYo7Nyv1WBB-BlPcQSYOetjYKjr9lFa/view?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projectLink"
+                        >
                             View Certificate
-                        </button>
+                        </a>
                     </div>
                 </div>
 
                 <div className="certificatesBar">
-                    <img src={Cert5} alt="ICIDICT Gen-AI and Cybersecurity Workshop Certificate" className="certificatesBarImg" />
+                    <img src={Cert3} alt="Generative AI Workshop Certificate" className="certificatesBarImg" />
                     <div className="certificatesBarText">
-                        <h2>ICIDICT-KIIT Gen-AI and Cybersecurity Workshop</h2>
+                        <h2>Generative AI Workshop</h2>
                         <p>
-                            Attended the ICIDICT-KIIT workshop on Generative AI and Cybersecurity, gaining insights into the intersection of AI technologies and secure computing systems.
-                        </p>
-                        <button className="projectLink" disabled>
-                            View Certificate
-                        </button>
-                    </div>
-                </div>
-
-                <div className="certificatesBar">
-                    <img src={Cert6} alt="HTML & CSS Bootcamp Certificate" className="certificatesBarImg" />
-                    <div className="certificatesBarText">
-                        <h2>HTML & CSS Bootcamp</h2>
-                        <p>
-                            Completed an intensive HTML5 & CSS3 Bootcamp from LetsUpgrade, including responsive design and accessibility best practices.
-                            Deployed a live project: <em>KIIT Calendar</em>.
-                        </p>
-                        <button className="projectLink" disabled>
-                            View Certificate
-                        </button>
-                    </div>
-                </div>
-
-                <div className="certificatesBar">
-                    <img src={Cert7} alt="HackerRank SQL Certificate" className="certificatesBarImg" />
-                    <div className="certificatesBarText">
-                        <h2>HackerRank SQL Certificate</h2>
-                        <p>
-                            Completed HackerRank’s SQL skills certification, demonstrating strong query writing and database management capabilities.
+                            Completed a hands-on workshop on Generative AI conducted by NxtWave, where I built an AI chatbot project titled <em>The Aspiring Scientist Chatbot</em>.
                         </p>
                         <a
-                            href="https://www.hackerrank.com/certificates/iframe/77ccb928d068"
+                            href="https://www.ccbp.in/ai-workshop-certificate?com=1740CY52LD?utm_source=whatsapp&utm_campaign=4.0-tribe-academy-ai-workshop-certificate&utm_medium=message"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="projectLink"
@@ -153,14 +149,51 @@ const Certificates = () => {
                 </div>
 
                 <div className="certificatesBar">
-                    <img src={Cert9} alt="React Hooks Certificate" className="certificatesBarImg" />
+                    <img src={Cert5} alt="ICIDICT Gen-AI and Cybersecurity Workshop Certificate" className="certificatesBarImg" />
                     <div className="certificatesBarText">
-                        <h2>GreatStack: React Hooks Certification</h2>
+                        <h2>ICIDICT-KIIT Gen-AI and Cybersecurity Workshop</h2>
                         <p>
-                            Completed an in-depth course on React Hooks, focusing on state management, effects, and building functional React components.
+                            Attended the ICIDICT-KIIT workshop on Generative AI and Cybersecurity, gaining insights into the intersection of AI technologies and secure computing systems.
                         </p>
                         <a
-                            href="https://quiz.greatstack.dev/validate/rhkss7klTDweUOTfw6fJCcAFmbGfBoE3"
+                            href="https://drive.google.com/file/d/1w82VkHVWEGehvJ3I0CwiRYHd46Lf9D0u/view?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projectLink"
+                        >
+                            View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div className="certificatesBar">
+                    <img src={Cert6} alt="HTML & CSS Bootcamp Certificate" className="certificatesBarImg" />
+                    <div className="certificatesBarText">
+                        <h2>HTML & CSS Bootcamp</h2>
+                        <p>
+                            Completed an intensive HTML5 & CSS3 Bootcamp from LetsUpgrade, including responsive design and accessibility best practices.
+                            Deployed a live project: <em>KIIT Calendar</em>.
+                        </p>
+                        <a
+                            href="https://drive.google.com/file/d/1UpHDZ3wRA83qJsWf6zuYFEZ2J9SV2UKM/view?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projectLink"
+                        >
+                            View Certificate
+                        </a>
+                    </div>
+                </div>
+
+               <div className="certificatesBar">
+                    <img src={Cert10} alt="Algo University Tech Fellowship (2024)" className="certificatesBarImg" />
+                    <div className="certificatesBarText">
+                        <h2>Algo University Tech Fellowship (2024)</h2>
+                        <p>
+                            Shortlisted in the competitive Tech Fellowship exam, securing a seat among 4,000 selected from over 20,000 candidates.
+                        </p>
+                        <a
+                            href="https://drive.google.com/file/d/1v24nAJlNKFOnbNuXlbw_YuMLbJJtiY_c/view?usp=drive_link"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="projectLink"
