@@ -61,7 +61,7 @@ const Projects = () => {
                             to showcase projects, skills, and achievements.
                         </p>
                         <a 
-                            href="https://your-portfolio-2-link.com" 
+                            href="https://pratik-s-protfolio.vercel.app/" 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="projectLink"
