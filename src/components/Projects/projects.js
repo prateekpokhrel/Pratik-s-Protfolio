@@ -3,6 +3,7 @@ import './projects.css';
 import Portfolio1 from '../../assets/calender-clone.png';
 import Portfolio2 from '../../assets/ai-automation.png';
 import Portfolio3 from '../../assets/portfolio.png';
+import Portfolio4 from '../../assets/project4.png';
 
 const Projects = () => {
     return (
@@ -14,6 +15,7 @@ const Projects = () => {
             </span>
 
             <div className="projectsBars">
+                {/* Project 1 */}
                 <div className="projectsBar">
                     <img src={Portfolio1} alt="Calendar Clone" className="projectsBarImg" />
                     <div className="projectsBarText">
@@ -33,6 +35,7 @@ const Projects = () => {
                     </div>
                 </div>
 
+                {/* Project 2 */}
                 <div className="projectsBar">
                     <img src={Portfolio2} alt="AI Automation" className="projectsBarImg" />
                     <div className="projectsBarText">
@@ -52,6 +55,7 @@ const Projects = () => {
                     </div>
                 </div>
 
+                {/* Project 3 */}
                 <div className="projectsBar">
                     <img src={Portfolio3} alt="Portfolio Website" className="projectsBarImg" />
                     <div className="projectsBarText">
@@ -70,6 +74,27 @@ const Projects = () => {
                         </a>
                     </div>
                 </div>
+
+                {/* Project 4 */}
+                <div className="projectsBar">
+                    <img src={Portfolio4} alt="Recipes Recommender" className="projectsBarImg" />
+                    <div className="projectsBarText">
+                        <h2>MyRecipes - Recipes Recommender</h2>
+                        <p>
+                            A fully responsive recipes recommender website built using HTML, CSS, and JavaScript.
+                            Deployed live for interactive use.
+                        </p>
+                        <a 
+                            href="https://my-recipes-pi.vercel.app/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="projectLink"
+                        >
+                            View Project
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </section>
     );

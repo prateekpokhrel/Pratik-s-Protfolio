@@ -102,7 +102,7 @@ const Intro = () => {
         </p>
         <div className="btnGroup">
           <a
-            href="https://drive.google.com/file/d/1kcY8IU3aCUtKwnF67kmvuCF94ZMbW50M/view?usp=drive_link"
+            href="https://drive.google.com/file/d/18yl68I_8CPfQFztoaZNXReGpVzCTF1Wd/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="btn"
