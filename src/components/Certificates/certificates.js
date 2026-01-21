@@ -10,6 +10,8 @@ import Cert7 from '../../assets/hacker-rank-sql.png';
 import Cert8 from '../../assets/hacker-rank-problem-solving.png';
 import Cert9 from '../../assets/react-hooks.png';
 import Cert10 from '../../assets/algo.png';
+import Cert11 from '../../assets/internship.jpg';
+import Cert12 from '../../assets/react.jpg';
 const Certificates = () => {
     return (
         <section id="certificates">
@@ -41,6 +43,25 @@ const Certificates = () => {
                 </div>
 
                 <div className="certificatesBar">
+                    <img src={Cert12} alt="frontend Developendt certified Certificate" className="certificatesBarImg" />
+                    <div className="certificatesBarText">
+                        <h2>HackerRank Certified Frontend Developer (React)</h2>
+                        <p>
+                            Succesfully completed HackerRank Frontend Developemnt exam using React and Javascript.
+                        </p>
+                        <a
+                            href="https://drive.google.com/file/d/18b5ujD9CvWNI4HiRPlzfsFRTS2VaNmvS/view?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projectLink"
+                        >
+                            View Certificate
+                        </a>
+                    </div>
+                </div>
+
+
+                <div className="certificatesBar">
                     <img src={Cert2} alt="Cloud Computing Certificate" className="certificatesBarImg" />
                     <div className="certificatesBarText">
                         <h2>Cloud Computing Fundamentals</h2>
@@ -49,6 +70,24 @@ const Certificates = () => {
                         </p>
                         <a
                             href="https://www.credly.com/badges/864b4f9b-1e44-462c-b60d-4c167b52af2b/linked_in_profile"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projectLink"
+                        >
+                            View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div className="certificatesBar">
+                    <img src={Cert11} alt="Internship Completion Certificate" className="certificatesBarImg" />
+                    <div className="certificatesBarText">
+                        <h2>Web Development Internship</h2>
+                        <p>
+                            Completed a 3 months internship as a Web Development Intern at VaultofCodes.
+                        </p>
+                        <a
+                            href="https://drive.google.com/file/d/1O6ZEUU19rVeiVi-inIVnnY9BBuSlmqo5/view?usp=drive_link"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="projectLink"
