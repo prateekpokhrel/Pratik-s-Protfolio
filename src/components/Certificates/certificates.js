@@ -1,17 +1,18 @@
 import React from 'react';
 import './certificates.css';
-import Cert1 from '../../assets/java-cert.png';
-import Cert2 from '../../assets/cloud-cert.png';
-import Cert3 from '../../assets/gen-ai.png';
-import Cert4 from '../../assets/agentic-ai.png';
-import Cert5 from '../../assets/icidict.png';
-import Cert6 from '../../assets/html-css.png';
-import Cert7 from '../../assets/hacker-rank-sql.png';
-import Cert8 from '../../assets/hacker-rank-problem-solving.png';
-import Cert9 from '../../assets/react-hooks.png';
-import Cert10 from '../../assets/algo.png';
-import Cert11 from '../../assets/internship.jpg';
-import Cert12 from '../../assets/react.jpg';
+import Cert1 from '../../assets/elabs.jpg';
+import Cert2 from '../../assets/aws.jpeg';
+import Cert3 from '../../assets/nxtwave.jpg';
+import Cert4 from '../../assets/uipath.png';
+import Cert5 from '../../assets/icdcit.png';
+import Cert6 from '../../assets/lets.jpeg';
+import Cert7 from '../../assets/hak.png';
+import Cert8 from '../../assets/hak.png';
+import Cert9 from '../../assets/sta.jpg';
+import Cert10 from '../../assets/algo.jpeg';
+import Cert11 from '../../assets/vault.png';
+import Cert12 from '../../assets/hak.png';
+import Cert13 from '../../assets/ml.jpg';
 const Certificates = () => {
     return (
         <section id="certificates">
@@ -23,16 +24,15 @@ const Certificates = () => {
 
             <div className="certificatesBars">
 
-                <div className="certificatesBar">
-                    <img src={Cert1} alt="Core Java Certificate" className="certificatesBarImg" />
+                 <div className="certificatesBar">
+                    <img src={Cert11} alt="Internship Completion Certificate" className="certificatesBarImg" />
                     <div className="certificatesBarText">
-                        <h2>Core Java Developer</h2>
+                        <h2>Web Development Internship</h2>
                         <p>
-                            Completed a comprehensive core Java course covering OOPs, Collections, JDBC, and multithreading.
-                            Included real-world capstone projects.
+                            Completed a 3 months internship as a Web Development Intern at VaultofCodes.
                         </p>
                         <a
-                            href="https://drive.google.com/file/d/1H5pLa5NJjMor9vFZ2DBqo154SSX5d4Xq/view"
+                            href="https://drive.google.com/file/d/1O6ZEUU19rVeiVi-inIVnnY9BBuSlmqo5/view?usp=drive_link"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="projectLink"
@@ -51,6 +51,44 @@ const Certificates = () => {
                         </p>
                         <a
                             href="https://drive.google.com/file/d/18b5ujD9CvWNI4HiRPlzfsFRTS2VaNmvS/view?usp=drive_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projectLink"
+                        >
+                            View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div className="certificatesBar">
+                    <img src={Cert13} alt="Hackathon Certificate" className="certificatesBarImg" />
+                    <div className="certificatesBarText">
+                        <h2>MLH Mini Hackathon</h2>
+                        <p>
+                            Participated in the MLH Mini Hackathon conducted by Google Gemini and Unstop at KIIT University, 
+                            where I built an AI-powered Smart City Issue Solver that resolves city problems efficiently within minutes.
+                        </p>
+                        <a
+                            href="https://drive.google.com/file/d/1jVUVvhRDSq0UnOilW2-028loBK7hz7Du/view?usp=sharing"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="projectLink"
+                        >
+                            View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div className="certificatesBar">
+                    <img src={Cert1} alt="Core Java Certificate" className="certificatesBarImg" />
+                    <div className="certificatesBarText">
+                        <h2>Core Java Developer</h2>
+                        <p>
+                            Completed a comprehensive core Java course covering OOPs, Collections, JDBC, and multithreading.
+                            Included real-world capstone projects.
+                        </p>
+                        <a
+                            href="https://drive.google.com/file/d/1H5pLa5NJjMor9vFZ2DBqo154SSX5d4Xq/view"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="projectLink"
@@ -79,23 +117,7 @@ const Certificates = () => {
                     </div>
                 </div>
 
-                <div className="certificatesBar">
-                    <img src={Cert11} alt="Internship Completion Certificate" className="certificatesBarImg" />
-                    <div className="certificatesBarText">
-                        <h2>Web Development Internship</h2>
-                        <p>
-                            Completed a 3 months internship as a Web Development Intern at VaultofCodes.
-                        </p>
-                        <a
-                            href="https://drive.google.com/file/d/1O6ZEUU19rVeiVi-inIVnnY9BBuSlmqo5/view?usp=drive_link"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="projectLink"
-                        >
-                            View Certificate
-                        </a>
-                    </div>
-                </div>
+               
 
                  <div className="certificatesBar">
                     <img src={Cert7} alt="HackerRank SQL Certificate" className="certificatesBarImg" />
