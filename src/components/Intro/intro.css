@@ -16,8 +16,8 @@
 /* Music Button  */
 .musicToggleBtn {
   position: fixed;
-  top: 10px;    /* Adjust to place it just above your navbar's contact button */
-  right: 10px;  /* Align right */
+  top: 14px;    /* Adjust to place it just above your navbar's contact button */
+  right: 64px;  /* Align right */
   width: 36px;
   height: 36px;
   background-color: #222;
@@ -227,3 +227,4 @@
         margin-top: 1.5rem;
     }
 }
+
