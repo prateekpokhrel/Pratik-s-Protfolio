@@ -8,6 +8,7 @@
     --accent-color: #800080; /* Purple from your screenshots */
     --shadow: rgba(0, 0, 0, 0.7);
     --transition: all 0.3s ease;
+    --icon-invert: 1; /* Invert black icons to white for dark mode */
 }
 
 /* Day Mode Variables */
@@ -19,6 +20,7 @@
     --text-active: #000;
     --accent-color: #a020f0;
     --shadow: rgba(0, 0, 0, 0.1);
+    --icon-invert: 0; /* Keep icons original (black) for light mode */
 }
 
 /* === Navbar Container === */
@@ -150,7 +152,7 @@
     height: 2rem;
     width: 2rem;
     cursor: pointer;
-    filter: var(--text-primary) === '#ddd' ? invert(1) : invert(0);
+    filter: invert(var(--icon-invert));
     transition: var(--transition);
 }
 
@@ -208,8 +210,8 @@
 @media screen and (max-width: 768px) {
     .mobMenu {
         display: block;
-        /* Ensure icon is visible against theme */
-        filter: brightness(0) invert(var(--mobile-icon-invert, 1));
+        /* Clean filter for mobile icon visibility */
+        filter: invert(var(--icon-invert));
     }
     
     .desktopMenu, 
