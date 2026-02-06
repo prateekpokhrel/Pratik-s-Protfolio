@@ -229,13 +229,16 @@
         padding: 0 14px;
     }
 
-    .desktopMenu,
-    .desktopMenuBtn {
+    /* hide desktop links on mobile */
+    .desktopMenu {
         display: none;
     }
 
+    /* show hamburger button */
     .mobMenu {
-        display: block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .logo {
@@ -252,6 +255,7 @@
         gap: 10px;
     }
 
+    /* mobile slide menu offset */
     .navMenu {
         top: 56px;
         height: calc(100vh - 56px);
@@ -275,4 +279,5 @@
         gap: 8px;
     }
 }
+
 
