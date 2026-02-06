@@ -1,16 +1,273 @@
-*
-{ 
-    margin: 0; 
-    padding: 0; 
-    box-sizing : border-box; 
-    text-decoration: none; 
-    background: transparent; 
-    font-family: Georgia, serif; 
-} 
-body 
-{ 
-    background: black; 
-    color: white; 
-    overflow-x: hidden; 
-    overflow-y: scroll; 
-} 
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    background: transparent;
+    font-family: Georgia, serif;
+}
+
+/* ===== THEME VARIABLES ===== */
+:root {
+    --bg: #0b0b0b;
+    --text: #ffffff;
+    --card: #151515;
+    --accent: #c400ff;
+    --accent2: #7a00ff;
+    --input: #1e1e1e;
+    --shadow: rgba(196, 0, 255, 0.35);
+}
+
+/* Light Mode */
+body.light {
+    --bg: #f7f7f7;
+    --text: #111111;
+    --card: #ffffff;
+    --accent: #8a00ff;
+    --accent2: #c400ff;
+    --input: #eeeeee;
+    --shadow: rgba(120, 0, 255, 0.25);
+}
+
+/* ===== BODY ===== */
+body {
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background .3s, color .3s;
+    line-height: 1.6;
+}
+
+/* ===== GLOBAL CONTAINERS ===== */
+section,
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+    font-size: clamp(32px, 6vw, 64px);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: clamp(26px, 5vw, 42px);
+}
+
+h3 {
+    font-size: clamp(20px, 4vw, 28px);
+}
+
+p {
+    font-size: clamp(15px, 2.5vw, 18px);
+    opacity: 0.9;
+}
+
+/* ===== BUTTONS ===== */
+button,
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s;
+    box-shadow: 0 0 18px var(--shadow);
+}
+
+button:hover,
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px var(--shadow);
+}
+
+/* ===== CARDS ===== */
+.card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* ===== INPUTS ===== */
+input,
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: none;
+    background: var(--input);
+    color: var(--text);
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+/* ===== IMAGES ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+}
+
+/* ===== FLEX HELPERS ===== */
+.flex {
+    display: flex;
+    gap: 24px;
+}
+
+.grid {
+    display: grid;
+    gap: 24px;
+}
+
+/* ===== SOCIAL ICONS ===== */
+.socials {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.socials a {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: .25s;
+}
+
+.socials a:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* ===== HERO MOBILE FIX ===== */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-img {
+    flex: 1;
+    text-align: center;
+}
+
+/* ===== CERTIFICATE GRID FIX ===== */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* ===== CONTACT FORM ===== */
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    opacity: 0.8;
+}
+
+/* =====================================================
+   📱 MOBILE RESPONSIVE BREAKPOINT
+===================================================== */
+@media (max-width: 768px) {
+
+    section,
+    .container {
+        padding: 40px 16px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-img {
+        order: -1;
+    }
+
+    .cert-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    button,
+    .btn {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    input,
+    textarea {
+        font-size: 16px;
+    }
+}
+
+/* =====================================================
+   💻 LARGE SCREEN ENHANCEMENTS
+===================================================== */
+@media (min-width: 1400px) {
+    section,
+    .container {
+        max-width: 1400px;
+    }
+}
+
+/* =====================================================
+   🌙 THEME TOGGLE BUTTON STYLE
+===================================================== */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--card);
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 0 14px var(--shadow);
+    z-index: 999;
+}
