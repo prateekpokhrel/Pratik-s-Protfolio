@@ -116,24 +116,74 @@
 }
 
 /* =========================
-   THEME BUTTON
+   THEME BUTTON — ADVANCED
 ========================= */
 .themeToggle {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     border: none;
-    background: transparent;
-    color: var(--accent-color);
-    font-size: 16px;
     cursor: pointer;
 
-    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    color: var(--accent-color);
+
+    /* glass look */
+    background: color-mix(in srgb, var(--accent-color) 12%, transparent);
+
+    /* soft glow */
+    box-shadow:
+        0 4px 14px rgba(0,0,0,0.25),
+        inset 0 0 0 1px color-mix(in srgb, var(--accent-color) 35%, transparent);
+
+    backdrop-filter: blur(6px);
+
+    transition:
+        transform .18s ease,
+        box-shadow .22s ease,
+        background .22s ease,
+        color .22s ease;
 }
 
+/* hover — lift + glow */
 .themeToggle:hover {
+    transform: translateY(-2px) scale(1.05);
+
     background: var(--accent-color);
     color: #fff;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.35),
+        0 0 0 6px color-mix(in srgb, var(--accent-color) 18%, transparent);
+}
+
+/* click press */
+.themeToggle:active {
+    transform: translateY(0) scale(0.96);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+/* keyboard focus */
+.themeToggle:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 3px color-mix(in srgb, var(--accent-color) 40%, transparent),
+        0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* icon micro-animation */
+.themeToggle span,
+.themeToggle svg {
+    transition: transform .25s ease;
+}
+
+.themeToggle:hover span,
+.themeToggle:hover svg {
+    transform: rotate(20deg);
 }
 
 /* =========================
@@ -227,46 +277,80 @@
     .navbar {
         height: 56px;
         padding: 0 14px;
+        padding-left: max(14px, env(safe-area-inset-left));
+        padding-right: max(14px, env(safe-area-inset-right));
     }
 
-    /* hide desktop links on mobile */
+    /* hide desktop links */
     .desktopMenu {
         display: none;
     }
 
-    /* show hamburger button */
+    /* show hamburger */
     .mobMenu {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+
+        cursor: pointer;
+        transition: transform .18s ease, background .18s ease;
     }
 
+    .mobMenu:active {
+        transform: scale(0.92);
+        background: var(--bg-list-item);
+    }
+
+    /* logo smaller */
     .logo {
         height: 30px;
     }
 
+    /* theme button touch size */
     .themeToggle {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
     }
 
+    /* controls spacing */
     .navControls {
         gap: 10px;
     }
 
-    /* mobile slide menu offset */
+    /* =========================
+       MOBILE MENU PANEL
+    ========================= */
     .navMenu {
         top: 56px;
         height: calc(100vh - 56px);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* mobile menu items — better tap targets */
+    .listItem {
+        min-height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
+
 /* =========================
-   EXTRA SMALL
+   EXTRA SMALL DEVICES
 ========================= */
 @media (max-width: 400px) {
 
+    /* hide logo to free space */
     .logo {
         display: none;
     }
@@ -277,6 +361,17 @@
 
     .navControls {
         gap: 8px;
+    }
+
+    .themeToggle {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .mobMenu {
+        width: 34px;
+        height: 34px;
     }
 }
 
