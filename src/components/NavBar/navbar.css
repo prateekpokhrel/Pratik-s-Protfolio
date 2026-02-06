@@ -2,7 +2,7 @@
    THEME VARIABLES
 ========================= */
 :root {
-    --bg-navbar: rgba(18, 18, 18, 0.85);
+    --bg-navbar: rgba(18, 18, 18, 0.88);
     --bg-menu: #202020;
     --bg-list-item: #1e1e1e;
     --text-primary: #dddddd;
@@ -13,9 +13,9 @@
 }
 
 .light-theme {
-    --bg-navbar: rgba(255, 255, 255, 0.95);
+    --bg-navbar: rgba(255, 255, 255, 0.96);
     --bg-menu: #ffffff;
-    --bg-list-item: #f2f2f2;
+    --bg-list-item: #f3f3f3;
     --text-primary: #333;
     --text-active: #000;
     --accent-color: #a020f0;
@@ -28,18 +28,25 @@
 .navbar {
     height: 64px;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 2000;
-    padding: 0 20px;
-    box-shadow: 0 2px 12px var(--shadow);
-    backdrop-filter: blur(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
     background: var(--bg-navbar);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 14px var(--shadow);
     transition: var(--transition);
+}
+
+/* center content on large screens */
+.navbar > * {
+    z-index: 2;
 }
 
 /* =========================
@@ -49,7 +56,7 @@
     height: 38px;
     width: auto;
     cursor: pointer;
-    transition: transform 0.25s;
+    transition: transform .25s;
 }
 
 .logo:hover {
@@ -62,31 +69,34 @@
 .desktopMenu {
     display: flex;
     align-items: center;
+    gap: 28px;
 }
 
 .desktopMenuListItem {
-    margin: 0 16px;
     cursor: pointer;
     color: var(--text-primary);
     font-weight: 500;
+    font-size: 15px;
     position: relative;
     padding: 6px 0;
     transition: var(--transition);
+    white-space: nowrap;
 }
 
 .desktopMenuListItem:hover {
     color: var(--accent-color);
 }
 
+/* underline animation */
 .desktopMenuListItem::after {
     content: '';
     position: absolute;
+    left: 0;
+    bottom: -4px;
     width: 0;
     height: 2px;
-    bottom: 0;
-    left: 0;
     background: var(--accent-color);
-    transition: width 0.25s;
+    transition: width .25s ease;
 }
 
 .desktopMenuListItem:hover::after,
@@ -95,72 +105,80 @@
 }
 
 /* =========================
-   CONTROLS
+   RIGHT CONTROLS
 ========================= */
 .navControls {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 /* =========================
-   THEME TOGGLE BUTTON
+   CONTACT BUTTON
+========================= */
+.desktopMenuBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1.5px solid var(--accent-color);
+    background: transparent;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.desktopMenuBtn:hover {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+.desktopMenuImg {
+    height: 18px;
+    width: 18px;
+    object-fit: contain;
+}
+
+/* =========================
+   THEME TOGGLE
 ========================= */
 .themeToggle {
-    border: 1.5px solid var(--accent-color);
-    color: var(--accent-color);
-    background: transparent;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    border: 1.5px solid var(--accent-color);
+    background: transparent;
+    color: var(--accent-color);
+    font-size: 16px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     transition: var(--transition);
-    font-size: 16px;
 }
 
 .themeToggle:hover {
     background: var(--accent-color);
-    color: white;
+    color: #fff;
 }
 
 /* =========================
-   MOBILE MENU BUTTON
+   MOBILE MENU ICON (IMAGE)
 ========================= */
 .mobMenu {
     display: none;
-    width: 36px;
-    height: 36px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
     cursor: pointer;
-    border: none;
-    background: transparent;
-    gap: 5px;
-}
-
-.mobMenu span {
-    width: 22px;
-    height: 2.5px;
-    background: var(--text-primary);
-    border-radius: 10px;
+    filter: brightness(0.9);
     transition: var(--transition);
 }
 
-/* hamburger → X */
-.mobMenu.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.mobMenu.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.mobMenu.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+.mobMenu:hover {
+    transform: scale(1.08);
 }
 
 /* =========================
@@ -173,12 +191,15 @@
     width: 100%;
     height: calc(100vh - 64px);
     background: var(--bg-menu);
+    backdrop-filter: blur(10px);
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 30px;
+    padding: 28px 16px;
+
     transform: translateX(100%);
-    transition: transform 0.35s ease;
+    transition: transform .35s ease;
     z-index: 1900;
 }
 
@@ -186,15 +207,16 @@
     transform: translateX(0);
 }
 
-/* menu items */
+/* mobile menu items */
 .listItem {
-    width: 90%;
+    width: 100%;
+    max-width: 420px;
     text-align: center;
     background: var(--bg-list-item);
     padding: 16px;
-    border-radius: 12px;
+    border-radius: 14px;
     margin: 10px 0;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     color: var(--text-primary);
     transition: var(--transition);
@@ -202,7 +224,7 @@
 
 .listItem:hover {
     background: var(--accent-color);
-    color: white;
+    color: #fff;
 }
 
 /* =========================
@@ -221,7 +243,7 @@
     }
 
     .mobMenu {
-        display: flex;
+        display: block;
     }
 
     .logo {
@@ -241,7 +263,7 @@
 }
 
 /* =========================
-   EXTRA SMALL DEVICES
+   EXTRA SMALL
 ========================= */
 @media (max-width: 400px) {
 
@@ -254,6 +276,6 @@
     }
 
     .navControls {
-        gap: 6px;
+        gap: 8px;
     }
 }
