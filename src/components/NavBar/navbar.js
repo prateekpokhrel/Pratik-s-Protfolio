@@ -77,19 +77,19 @@ const Navbar = () => {
           aria-label="Toggle theme"
           title="Toggle light/dark mode"
         >
-          {lightMode ? '🌙' : '☀️'}
+          {lightMode ? '😴' : '🌞'}
         </button>
 
-        {/* Contact Button */}
-        <button
-          className="desktopMenuBtn"
-          onClick={() => {
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          <img src={contactImg} alt="" className="desktopMenuImg" />
-          Contact
-        </button>
+        // {/* Contact Button */}
+        // <button
+        //   className="desktopMenuBtn"
+        //   onClick={() => {
+        //     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        //   }}
+        // >
+        //   <img src={contactImg} alt="" className="desktopMenuImg" />
+        //   Contact
+        // </button>
 
         {/* Mobile Menu Icon */}
         <img
@@ -127,3 +127,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
