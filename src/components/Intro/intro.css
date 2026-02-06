@@ -1,230 +1,304 @@
-/* Container */
+/* =========================
+   INTRO — MODERN GLASS HERO
+========================= */
+
 #intro {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     min-height: 100vh;
-    padding: 2rem 4rem;
-    background-color: black;
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 96px 5vw 60px; /* navbar offset */
+    gap: 48px;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(176,0,255,0.15), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(0,150,255,0.12), transparent 45%),
+        var(--bg-main, #0b0b0b);
+
+    color: var(--text-primary, #fff);
     position: relative;
     overflow: hidden;
 }
 
 
-/* Music Button  */
-.musicToggleBtn {
-  position: fixed;
-  top: 14px;    /* Adjust to place it just above your navbar's contact button */
-  right: 64px;  /* Align right */
-  width: 36px;
-  height: 36px;
-  background-color: #222;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  transition: opacity 0.3s ease;
-  box-shadow: 0 0 5px rgba(0,0,0,0.5);
-}
+/* =========================
+   GLASS CARD EFFECT
+========================= */
 
-.musicToggleBtn:hover {
-  opacity: 1;
-}
-
-.musicToggleBtn svg {
-  pointer-events: none; /* So clicks go to button */
-}
-
-/* Live Time Clock*/
-.liveClock {
-  font-size: 1.2rem;
-  padding: 2rem 1.2rem;;
-  font-weight: 600;
-  color: #666;
-  margin-top: 10px; /* space above clock */
-  font-family: 'Courier New', Courier, monospace;
-  text-align: center;
-}
-
-/* Temperature Display */
-
-.timeWeatherWrapper {
-  display: flex;
-  flex-direction: column;
-  
-  font-size: 1.2rem;
-  font-weight: 600;
-  align-items: center;
-  margin-top: 3px;
-  color: #666;
-  font-family: 'Courier New', Courier, monospace;
-  user-select: none;
-}
-
-.weatherInfo {
-  font-size: 1.0rem;
-  font-weight: 600;
-  margin-top: 4px;
-  font-family: 'Courier New', Courier, monospace;
-
-}
-.weatherIcon {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
-  margin-right: 4px;
-}
-
-
-
-
-/* Left content */
 .introContent {
-    max-width: 50%;
+    max-width: 560px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 18px;
+
+    padding: 32px;
+
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(14px);
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45),
+        inset 0 0 0 1px rgba(255,255,255,0.08);
 }
 
-/* Hello text */
+/* light theme glass */
+body.light-theme .introContent {
+    background: rgba(255,255,255,0.65);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.12),
+        inset 0 0 0 1px rgba(0,0,0,0.06);
+}
+
+
+/* =========================
+   TEXT HIERARCHY
+========================= */
+
 .hello {
-    font-weight: 400;
-    font-size: 2rem;
-    color: #aaa;
+    font-size: 1.2rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: 0.7;
 }
 
-/* Name text */
 .introName {
-    font-size: 4.5rem;
+    font-size: clamp(42px, 6vw, 68px);
     font-weight: 900;
-    color: #fff;
+    line-height: 1.05;
     position: relative;
-    line-height: 1.1;
 }
 
-/* Underline under the last name */
+.introName span {
+    background: linear-gradient(90deg, #b000ff, #00c6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* animated underline */
 .underline {
     position: absolute;
-    bottom: 0.15em;
     left: 0;
-    width: 70%;
-    height: 4px;
-    background: purple;
-    border-radius: 2px;
-    opacity: 0.75;
+    bottom: -6px;
+    width: 60%;
+    height: 6px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #b000ff, #00c6ff);
+    opacity: .8;
 }
 
-/* Role / subtitle */
+/* subtitle */
 .introRole {
-    font-size: 1.5rem;
-    color: #ccc;
+    font-size: 1.25rem;
+    opacity: 0.85;
     font-weight: 500;
-    margin-top: 0.8rem;
+    line-height: 1.5;
 }
 
-/* Button group */
+
+/* =========================
+   BUTTON — PREMIUM CTA
+========================= */
+
 .btnGroup {
-    margin-top: 2rem;
+    margin-top: 8px;
 }
 
 .btn {
-    background-color: purple;
-    color: #fff;
-    padding: 0.75rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 26px;
+    border-radius: 999px;
     border: none;
-    border-radius: 25px;
+
+    font-size: 16px;
     font-weight: 700;
-    font-size: 1.1rem;
+    letter-spacing: .02em;
+
+    background: linear-gradient(90deg, #b000ff, #6a00ff);
+    color: #fff;
+
     cursor: pointer;
-    box-shadow: 0 0 10px white;
-    transition: background-color 0.3s ease;
     text-decoration: none;
-    display: inline-block;
+
+    box-shadow:
+        0 10px 30px rgba(176,0,255,0.45);
+
+    transition: transform .18s ease, box-shadow .25s ease;
 }
 
 .btn:hover {
-    background-color: green;
+    transform: translateY(-2px);
+    box-shadow:
+        0 16px 40px rgba(176,0,255,0.6);
 }
 
-/* Social media icons vertical stack */
+.btn:active {
+    transform: translateY(0) scale(.97);
+}
+
+
+/* =========================
+   SOCIAL ICONS — GLASS
+========================= */
+
 .socialMedia {
-    margin-top: 3rem;
+    margin-top: 14px;
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    gap: 14px;
+    flex-wrap: wrap;
 }
 
-/* Circle style social icons */
 .socialIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    border: 1.5px solid whitesmoke;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    color: whitesmoke;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+
+    color: var(--text-primary);
     font-weight: 700;
-    font-size: 1.2rem;
     text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
+
+    transition: all .22s ease;
 }
 
 .socialIcon:hover {
-    background-color: purple;
+    background: linear-gradient(135deg, #b000ff, #6a00ff);
     color: #fff;
+    transform: translateY(-3px);
 }
 
-/* Profile image container */
+
+/* =========================
+   PROFILE IMAGE — PREMIUM
+========================= */
+
 .profileImageWrapper {
-    margin-left: auto;
-    
-    max-width: 40%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .profileImg {
-    width: 100%;
-    
-    border-radius: 12px;
-    box-shadow: 0 0 30px whitesmoke;
+    width: min(420px, 90%);
+    border-radius: 28px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.6);
+
     object-fit: cover;
-   
 }
 
-/* Responsive */
+/* glow ring */
+.profileImg::after {
+    content: "";
+}
+
+
+/* =========================
+   MUSIC BUTTON — GLASS
+========================= */
+
+.musicToggleBtn {
+    position: fixed;
+    top: 14px;
+    right: 72px; /* space from navbar controls */
+
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(8px);
+
+    cursor: pointer;
+    z-index: 2100;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    transition: all .2s ease;
+}
+
+.musicToggleBtn:hover {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   CLOCK + WEATHER — CARD
+========================= */
+
+.timeWeatherWrapper {
+    margin-top: 10px;
+    padding: 14px 18px;
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+
+    font-family: monospace;
+    font-size: 14px;
+    text-align: center;
+
+    opacity: .9;
+}
+
+body.light-theme .timeWeatherWrapper {
+    background: rgba(0,0,0,0.05);
+}
+
+.weatherInfo {
+    margin-top: 6px;
+}
+
+
+/* =========================
+   RESPONSIVE — MOBILE FIRST
+========================= */
+
 @media (max-width: 900px) {
+
     #intro {
         flex-direction: column;
-        padding: 2rem;
-    }
-    .introContent,
-    .profileImageWrapper {
-        max-width: 100%;
-    }
-    .profileImageWrapper {
-        margin-top: 2rem;
-    }
-    .introName {
-        font-size: 3.5rem;
-    }
-    .introRole {
-        font-size: 1.3rem;
-    }
-    .btn {
-        width: 100%;
+        padding: 96px 20px 40px;
         text-align: center;
     }
+
+    .introContent {
+        max-width: 100%;
+        padding: 26px;
+    }
+
+    .profileImageWrapper {
+        order: -1;
+    }
+
     .socialMedia {
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 1rem;
-        margin-top: 1.5rem;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .musicToggleBtn {
+        right: 60px;
+        width: 34px;
+        height: 34px;
     }
 }
-
