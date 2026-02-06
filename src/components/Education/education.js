@@ -9,7 +9,7 @@ const Education = () => {
             institution: "Kalinga Institute of Industrial Technology, Deemed to be University",
             degree: "Bachelor of Technology in Computer Science and Engineering",
             duration: "2023 - 2027 (Expected)",
-            description: "CGPA: 8.86(up to 5th sem)"
+            description: "CGPA: 8.86 (up to 5th sem)"
         },
         {
             id: "higherSecondary",
@@ -47,4 +47,5 @@ const Education = () => {
 };
 
 export default Education;
+
 
