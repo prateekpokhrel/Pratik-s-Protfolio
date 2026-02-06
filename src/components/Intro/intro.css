@@ -1,15 +1,138 @@
-/* Improved Name & Underline container */
+/* Container */ 
+#intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 4rem;
+    background-color: black;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Music Button  */
+.musicToggleBtn {
+  position: fixed;
+  top: 14px;    /* Adjust to place it just above your navbar's contact button */
+  right: 64px;  /* Align right */
+  width: 36px;
+  height: 36px;
+  background-color: #222;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.musicToggleBtn:hover {
+  opacity: 1;
+}
+
+.musicToggleBtn svg {
+  pointer-events: none; /* So clicks go to button */
+}
+
+/* Live Time Clock*/
+.liveClock {
+  font-size: 1.2rem;
+  padding: 2rem 1.2rem;;
+  font-weight: 600;
+  color: #666;
+  margin-top: 10px; /* space above clock */
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+/* Temperature Display */
+
+.timeWeatherWrapper {
+  display: flex;
+  flex-direction: column;
+  
+  font-size: 1.2rem;
+  font-weight: 600;
+  align-items: center;
+  margin-top: 3px;
+  color: #666;
+  font-family: 'Courier New', Courier, monospace;
+  user-select: none;
+}
+
+.weatherInfo {
+  font-size: 1.0rem;
+  font-weight: 600;
+  margin-top: 4px;
+  font-family: 'Courier New', Courier, monospace;
+
+}
+.weatherIcon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+
+
+
+/* Left content */
+.introContent {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Hello text */
+.hello {
+    font-weight: 400;
+    font-size: 2rem;
+    color: #aaa;
+}
+
+/* Name text */
 .introName {
     font-size: 4.5rem;
     font-weight: 900;
     color: #fff;
     position: relative;
     line-height: 1.1;
-    display: inline-block; /* Helps the underline stay relative to text width */
-    margin-bottom: 0.5rem;
 }
 
-/* More refined button glow */
+/* Underline under the last name */
+.underline {
+    position: absolute;
+    bottom: 0.15em;
+    left: 0;
+    width: 70%;
+    height: 4px;
+    background: purple;
+    border-radius: 2px;
+    opacity: 0.75;
+}
+
+/* Role / subtitle */
+.introRole {
+    font-size: 1.5rem;
+    color: #ccc;
+    font-weight: 500;
+    margin-top: 0.8rem;
+}
+
+/* Button group */
+.btnGroup {
+    margin-top: 2rem;
+}
+
 .btn {
     background-color: purple;
     color: #fff;
@@ -17,25 +140,90 @@
     border: none;
     border-radius: 25px;
     font-weight: 700;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(128, 0, 128, 0.4); /* Subtle purple glow */
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px white;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn:hover {
-    background-color: #5a005a; /* Slightly darker purple */
-    transform: translateY(-2px); /* Lifts the button on hover */
-    box-shadow: 0 6px 20px rgba(128, 0, 128, 0.6);
+    background-color: green;
 }
 
-/* Image handling */
+/* Social media icons vertical stack */
+.socialMedia {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Circle style social icons */
+.socialIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid whitesmoke;
+    border-radius: 50%;
+    color: whitesmoke;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.socialIcon:hover {
+    background-color: purple;
+    color: #fff;
+}
+
+/* Profile image container */
+.profileImageWrapper {
+    margin-left: auto;
+    
+    max-width: 40%;
+}
+
 .profileImg {
     width: 100%;
-    height: auto;
+    
     border-radius: 12px;
-    filter: grayscale(20%); /* Adds a bit of 'mood' */
-    transition: filter 0.3s ease;
+    box-shadow: 0 0 30px whitesmoke;
+    object-fit: cover;
+   
 }
 
-.profileImg:hover {
-    filter: grayscale(0%);
+/* Responsive */
+@media (max-width: 900px) {
+    #intro {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    .introContent,
+    .profileImageWrapper {
+        max-width: 100%;
+    }
+    .profileImageWrapper {
+        margin-top: 2rem;
+    }
+    .introName {
+        font-size: 3.5rem;
+    }
+    .introRole {
+        font-size: 1.3rem;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    .socialMedia {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
 }
