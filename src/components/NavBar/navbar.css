@@ -2,13 +2,13 @@
    THEME VARIABLES
 ========================= */
 :root {
-    --bg-navbar: rgba(18, 18, 18, 0.88);
+    --bg-navbar: rgba(18, 18, 18, 0.9);
     --bg-menu: #202020;
     --bg-list-item: #1e1e1e;
     --text-primary: #dddddd;
     --text-active: #ffffff;
     --accent-color: #b000ff;
-    --shadow: rgba(0, 0, 0, 0.6);
+    --shadow: rgba(0, 0, 0, 0.55);
     --transition: all 0.25s ease;
 }
 
@@ -42,11 +42,6 @@
     backdrop-filter: blur(12px);
     box-shadow: 0 2px 14px var(--shadow);
     transition: var(--transition);
-}
-
-/* center content on large screens */
-.navbar > * {
-    z-index: 2;
 }
 
 /* =========================
@@ -105,44 +100,22 @@
 }
 
 /* =========================
-   RIGHT CONTROLS
+   RIGHT CONTROLS (THEME + PLAY + CONTACT)
 ========================= */
 .navControls {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px; /* ← fixes spacing between buttons */
+}
+
+/* prevent squish */
+.navControls img,
+.navControls button {
+    flex-shrink: 0;
 }
 
 /* =========================
-   CONTACT BUTTON
-========================= */
-.desktopMenuBtn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1.5px solid var(--accent-color);
-    background: transparent;
-    color: var(--text-primary);
-    cursor: pointer;
-    font-size: 14px;
-    transition: var(--transition);
-}
-
-.desktopMenuBtn:hover {
-    background: var(--accent-color);
-    color: #fff;
-}
-
-.desktopMenuImg {
-    height: 18px;
-    width: 18px;
-    object-fit: contain;
-}
-
-/* =========================
-   THEME TOGGLE
+   THEME TOGGLE BUTTON
 ========================= */
 .themeToggle {
     width: 36px;
@@ -153,15 +126,50 @@
     color: var(--accent-color);
     font-size: 16px;
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     transition: var(--transition);
 }
 
 .themeToggle:hover {
     background: var(--accent-color);
     color: #fff;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   CONTACT BUTTON
+========================= */
+.desktopMenuBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: none;
+
+    background: transparent;
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+
+    transition: var(--transition);
+}
+
+.desktopMenuBtn:hover {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+.desktopMenuImg {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
 }
 
 /* =========================
@@ -173,16 +181,17 @@
     height: 32px;
     object-fit: contain;
     cursor: pointer;
-    filter: brightness(0.9);
     transition: var(--transition);
+    opacity: 0.9;
 }
 
 .mobMenu:hover {
     transform: scale(1.08);
+    opacity: 1;
 }
 
 /* =========================
-   MOBILE NAV MENU
+   MOBILE NAV MENU PANEL
 ========================= */
 .navMenu {
     position: fixed;
@@ -190,12 +199,14 @@
     left: 0;
     width: 100%;
     height: calc(100vh - 64px);
+
     background: var(--bg-menu);
     backdrop-filter: blur(10px);
 
     display: flex;
     flex-direction: column;
     align-items: center;
+
     padding: 28px 16px;
 
     transform: translateX(100%);
@@ -212,19 +223,23 @@
     width: 100%;
     max-width: 420px;
     text-align: center;
+
     background: var(--bg-list-item);
     padding: 16px;
     border-radius: 14px;
     margin: 10px 0;
+
     font-size: 17px;
     font-weight: 600;
     color: var(--text-primary);
+
     transition: var(--transition);
 }
 
 .listItem:hover {
     background: var(--accent-color);
     color: #fff;
+    transform: translateY(-1px);
 }
 
 /* =========================
@@ -256,6 +271,10 @@
         font-size: 14px;
     }
 
+    .navControls {
+        gap: 10px;
+    }
+
     .navMenu {
         top: 56px;
         height: calc(100vh - 56px);
@@ -263,7 +282,7 @@
 }
 
 /* =========================
-   EXTRA SMALL
+   EXTRA SMALL DEVICES
 ========================= */
 @media (max-width: 400px) {
 
