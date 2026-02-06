@@ -88,7 +88,7 @@ const Navbar = () => {
           onClick={toggleTheme}
           aria-label="Toggle theme"
         >
-          {lightMode ? '😴' : '🌞'}
+          {lightMode ? '⏾' : '☀︎'}
         </button>
 
         {/* Mobile Menu Toggle */}
@@ -130,3 +130,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
