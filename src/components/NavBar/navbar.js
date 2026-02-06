@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './navbar.css';
 import logo from '../../assets/logo.png';
 import contactImg from '../../assets/contact.png';
@@ -7,13 +7,37 @@ import menu from '../../assets/menu.png';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [lightMode, setLightMode] = useState(false);
 
   const closeMenu = () => setShowMenu(false);
 
   const sections = ['home', 'about', 'education', 'projects', 'certificates', 'tools', 'contact'];
 
+  /* =========================
+     LOAD SAVED THEME
+  ========================= */
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.body.classList.add('light-theme');
+      setLightMode(true);
+    }
+  }, []);
+
+  /* =========================
+     TOGGLE THEME
+  ========================= */
+  const toggleTheme = () => {
+    document.body.classList.toggle('light-theme');
+
+    const isLight = document.body.classList.contains('light-theme');
+    setLightMode(isLight);
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  };
+
   return (
     <nav className="navbar" role="navigation" aria-label="Main navigation">
+
       {/* Logo */}
       <img
         src={logo}
@@ -23,7 +47,6 @@ const Navbar = () => {
         style={{ cursor: 'pointer' }}
         tabIndex={0}
         onKeyPress={(e) => { if (e.key === 'Enter') scroll.scrollToTop(); }}
-        aria-label="Scroll to top"
       />
 
       {/* Desktop Menu */}
@@ -44,27 +67,39 @@ const Navbar = () => {
         ))}
       </div>
 
-      {/* Contact Button */}
-      <button
-        className="desktopMenuBtn"
-        onClick={() => {
-          document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }}
-        aria-label="Scroll to contact section"
-      >
-        <img src={contactImg} alt="Contact" className="desktopMenuImg" />
-        Contact Me
-      </button>
+      {/* Right Controls */}
+      <div className="navControls">
 
-      {/* Mobile Menu Icon */}
-      <img
-        src={menu}
-        alt="Menu"
-        className="mobMenu"
-        onClick={() => setShowMenu(!showMenu)}
-        style={{ cursor: 'pointer' }}
-        aria-label="Toggle mobile menu"
-      />
+        {/* Theme Toggle */}
+        <button
+          className="themeToggle"
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+          title="Toggle light/dark mode"
+        >
+          {lightMode ? '🌙' : '☀️'}
+        </button>
+
+        {/* Contact Button */}
+        <button
+          className="desktopMenuBtn"
+          onClick={() => {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          <img src={contactImg} alt="" className="desktopMenuImg" />
+          Contact
+        </button>
+
+        {/* Mobile Menu Icon */}
+        <img
+          src={menu}
+          alt="Menu"
+          className="mobMenu"
+          onClick={() => setShowMenu(!showMenu)}
+          style={{ cursor: 'pointer' }}
+        />
+      </div>
 
       {/* Mobile Nav Menu */}
       {showMenu && (
