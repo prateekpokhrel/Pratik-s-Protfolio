@@ -157,40 +157,7 @@
     object-fit: contain;
 }
 
-/* =========================
-   CONTACT BUTTON
-========================= */
-.desktopMenuBtn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
 
-    padding: 8px 16px;
-    border-radius: 999px;
-    border: 1.5px solid transparent;
-
-    background: transparent;
-    color: var(--text-primary);
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 1;
-    white-space: nowrap;
-
-    transition: var(--transition);
-}
-
-.desktopMenuBtn:hover {
-    background: var(--accent-color);
-    color: #fff;
-}
-
-/* contact icon ONLY */
-.desktopMenuImg {
-    width: 18px;
-    height: 18px;
-    object-fit: contain;
-    display: block;
-}
 
 /* =========================
    MOBILE MENU ICON
@@ -308,3 +275,4 @@
         gap: 8px;
     }
 }
+
