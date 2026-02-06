@@ -1,31 +1,29 @@
 /* === Theme Variables === */
 :root {
-    --bg-navbar: rgba(18, 18, 18, 0.8);
+    --bg-navbar: rgba(18, 18, 18, 0.9);
     --bg-menu: #282828;
     --bg-list-item: #1e1e1e;
     --text-primary: #ddd;
     --text-active: #ffffff;
-    --accent-color: #800080; /* Purple from your screenshots */
+    --accent-color: #800080; 
     --shadow: rgba(0, 0, 0, 0.7);
-    --transition: all 0.3s ease;
-    --icon-invert: 1; /* Invert black icons to white for dark mode */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --icon-invert: 1;
 }
 
-/* Day Mode Variables */
 .light-theme {
-    --bg-navbar: rgba(255, 255, 255, 0.9);
-    --bg-menu: #f0f0f0;
-    --bg-list-item: #ffffff;
+    --bg-navbar: rgba(255, 255, 255, 0.95);
+    --bg-menu: #ffffff;
+    --bg-list-item: #f5f5f5;
     --text-primary: #333;
     --text-active: #000;
     --accent-color: #a020f0;
     --shadow: rgba(0, 0, 0, 0.1);
-    --icon-invert: 0; /* Keep icons original (black) for light mode */
+    --icon-invert: 0;
 }
 
 /* === Navbar Container === */
 .navbar {
-    pointer-events: auto;
     height: 4.5rem;
     width: 100%;
     display: flex;
@@ -34,26 +32,21 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1100;
-    padding: 0 5%; /* Fluid padding instead of fixed margins */
+    z-index: 2000; /* High z-index to stay on top of everything */
+    padding: 0 1.5rem;
     box-sizing: border-box;
-    box-shadow: 0 2px 10px var(--shadow);
-    backdrop-filter: saturate(180%) blur(10px);
+    box-shadow: 0 2px 15px var(--shadow);
+    backdrop-filter: blur(12px);
     background: var(--bg-navbar);
     transition: var(--transition);
 }
 
 /* === Logo === */
 .logo {
-    object-fit: contain;
-    height: 3.5rem; /* Adjusted for better fit */
+    height: 2.5rem;
     width: auto;
     cursor: pointer;
     transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.05);
 }
 
 /* === Desktop Menu === */
@@ -63,7 +56,7 @@
 }
 
 .desktopMenuListItem {
-    margin: 0 1.2rem;
+    margin: 0 1rem;
     cursor: pointer;
     color: var(--text-primary);
     font-weight: 500;
@@ -76,7 +69,6 @@
     color: var(--accent-color);
 }
 
-/* Underline effect */
 .desktopMenuListItem::after {
     content: '';
     position: absolute;
@@ -88,71 +80,53 @@
     transition: width 0.3s ease;
 }
 
-.desktopMenuListItem:hover::after, 
-.active::after {
+.desktopMenuListItem:hover::after, .active::after {
     width: 100%;
 }
 
-.active {
-    color: var(--accent-color) !important;
+/* === Controls (Theme Toggle & Buttons) === */
+.navControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-/* === Theme Toggle Button === */
 .themeToggle {
     background: none;
     border: 1.5px solid var(--accent-color);
     color: var(--accent-color);
     border-radius: 50%;
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 2rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin: 0 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     transition: var(--transition);
 }
 
-.themeToggle:hover {
-    background: var(--accent-color);
-    color: white;
-}
-
-/* === Desktop Menu Button === */
-.desktopMenuBtn {
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.6rem 1.5rem;
-    cursor: pointer;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition);
-}
-
-.desktopMenuBtn:hover {
-    filter: brightness(1.2);
-    transform: translateY(-2px);
-}
-
-.desktopMenuImg {
-    height: 1rem;
-    width: 1rem;
-    margin-left: 0.5rem;
-    filter: invert(1);
-}
-
-/* === Mobile Menu Icon === */
+/* === Mobile Menu Toggle (Hamburger Icon) === */
 .mobMenu {
     display: none;
-    height: 2rem;
     width: 2rem;
+    height: 2rem;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     cursor: pointer;
-    filter: invert(var(--icon-invert));
+    background: transparent;
+    border: none;
+    padding: 5px;
+    z-index: 2100;
+}
+
+/* The three lines */
+.mobMenu span {
+    width: 1.5rem;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 10px;
     transition: var(--transition);
 }
 
@@ -160,85 +134,75 @@
 .navMenu {
     position: fixed;
     top: 4.5rem;
-    right: 1rem;
-    z-index: 1200;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 4.5rem);
+    background: var(--bg-navbar);
     display: flex;
     flex-direction: column;
-    padding: 1rem 0;
-    min-width: 14rem;
-    background: var(--bg-menu);
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    animation: slideIn 0.3s ease forwards;
+    align-items: center;
+    padding-top: 2rem;
+    transform: translateX(100%); /* Start off-screen */
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 1900;
 }
 
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Class to show the menu (apply this to navMenu when mobMenu is clicked) */
+.navMenu.open {
+    transform: translateX(0);
 }
 
 .listItem {
     color: var(--text-primary);
-    padding: 1rem 2rem;
-    margin: 0.2rem 1rem;
-    background: var(--bg-list-item);
-    border-radius: 0.7rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.5rem 0;
     cursor: pointer;
-    font-weight: 500;
-    transition: var(--transition);
-    text-align: left;
+    transition: color 0.3s ease;
 }
 
 .listItem:hover {
-    background: var(--accent-color);
-    color: white !important;
+    color: var(--accent-color);
 }
 
 /* === Responsive Breakpoints === */
 
-/* Tablets/Small Desktops */
-@media screen and (max-width: 1024px) {
-    .navbar {
-        padding: 0 3%;
-    }
-    .desktopMenuListItem {
-        margin: 0 0.8rem;
-    }
-}
-
-/* Mobile Devices */
 @media screen and (max-width: 768px) {
-    .mobMenu {
-        display: block;
-        /* Clean filter for mobile icon visibility */
-        filter: invert(var(--icon-invert));
-    }
-    
-    .desktopMenu, 
-    .desktopMenuBtn {
+    .desktopMenu, .desktopMenuBtn {
         display: none;
     }
 
-    .logo {
-        height: 2.8rem;
+    .mobMenu {
+        display: flex;
     }
 
-    .navbar {
-        height: 4rem;
+    .logo {
+        height: 2rem; /* Smaller logo to fit controls */
     }
-    
-    .navMenu {
-        top: 4rem;
-        width: calc(100% - 2rem);
-        right: 1rem;
-        left: 1rem; /* Center mobile menu on very small screens */
+
+    /* Adjust the three lines into an 'X' if menu is open (Optional via JS) */
+    .mobMenu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobMenu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .mobMenu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
     }
 }
 
-/* Extra Small Phones */
-@media screen and (max-width: 480px) {
-    .listItem {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.95rem;
+/* Specifically for very small screens where song buttons exist */
+@media screen and (max-width: 400px) {
+    .navbar {
+        padding: 0 1rem;
+    }
+    
+    .logo {
+        display: none; /* Creative choice: Hide logo on tiny screens to prioritize navigation and music controls */
+    }
+    
+    .navControls {
+        gap: 0.25rem;
     }
 }
