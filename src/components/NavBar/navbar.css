@@ -1,30 +1,32 @@
-/* === Theme Variables === */
+/* =========================
+   THEME VARIABLES
+========================= */
 :root {
-    --bg-navbar: rgba(18, 18, 18, 0.9);
-    --bg-menu: #282828;
+    --bg-navbar: rgba(18, 18, 18, 0.85);
+    --bg-menu: #202020;
     --bg-list-item: #1e1e1e;
-    --text-primary: #ddd;
+    --text-primary: #dddddd;
     --text-active: #ffffff;
-    --accent-color: #800080; 
-    --shadow: rgba(0, 0, 0, 0.7);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --icon-invert: 1;
+    --accent-color: #b000ff;
+    --shadow: rgba(0, 0, 0, 0.6);
+    --transition: all 0.25s ease;
 }
 
 .light-theme {
     --bg-navbar: rgba(255, 255, 255, 0.95);
     --bg-menu: #ffffff;
-    --bg-list-item: #f5f5f5;
+    --bg-list-item: #f2f2f2;
     --text-primary: #333;
     --text-active: #000;
     --accent-color: #a020f0;
-    --shadow: rgba(0, 0, 0, 0.1);
-    --icon-invert: 0;
+    --shadow: rgba(0, 0, 0, 0.12);
 }
 
-/* === Navbar Container === */
+/* =========================
+   NAVBAR CONTAINER
+========================= */
 .navbar {
-    height: 4.5rem;
+    height: 64px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -32,36 +34,43 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2000; /* High z-index to stay on top of everything */
-    padding: 0 1.5rem;
-    box-sizing: border-box;
-    box-shadow: 0 2px 15px var(--shadow);
-    backdrop-filter: blur(12px);
+    z-index: 2000;
+    padding: 0 20px;
+    box-shadow: 0 2px 12px var(--shadow);
+    backdrop-filter: blur(10px);
     background: var(--bg-navbar);
     transition: var(--transition);
 }
 
-/* === Logo === */
+/* =========================
+   LOGO
+========================= */
 .logo {
-    height: 2.5rem;
+    height: 38px;
     width: auto;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.25s;
 }
 
-/* === Desktop Menu === */
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   DESKTOP MENU
+========================= */
 .desktopMenu {
     display: flex;
     align-items: center;
 }
 
 .desktopMenuListItem {
-    margin: 0 1rem;
+    margin: 0 16px;
     cursor: pointer;
     color: var(--text-primary);
     font-weight: 500;
     position: relative;
-    padding: 0.5rem 0;
+    padding: 6px 0;
     transition: var(--transition);
 }
 
@@ -76,99 +85,138 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease;
+    background: var(--accent-color);
+    transition: width 0.25s;
 }
 
-.desktopMenuListItem:hover::after, .active::after {
+.desktopMenuListItem:hover::after,
+.active::after {
     width: 100%;
 }
 
-/* === Controls (Theme Toggle & Buttons) === */
+/* =========================
+   CONTROLS
+========================= */
 .navControls {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 10px;
 }
 
+/* =========================
+   THEME TOGGLE BUTTON
+========================= */
 .themeToggle {
-    background: none;
     border: 1.5px solid var(--accent-color);
     color: var(--accent-color);
+    background: transparent;
     border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
+    width: 34px;
+    height: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 1rem;
     transition: var(--transition);
+    font-size: 16px;
 }
 
-/* === Mobile Menu Toggle (Hamburger Icon) === */
+.themeToggle:hover {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
 .mobMenu {
     display: none;
-    width: 2rem;
-    height: 2rem;
+    width: 36px;
+    height: 36px;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
-    background: transparent;
     border: none;
-    padding: 5px;
-    z-index: 2100;
+    background: transparent;
+    gap: 5px;
 }
 
-/* The three lines */
 .mobMenu span {
-    width: 1.5rem;
-    height: 2px;
+    width: 22px;
+    height: 2.5px;
     background: var(--text-primary);
     border-radius: 10px;
     transition: var(--transition);
 }
 
-/* === Mobile Nav Dropdown === */
+/* hamburger → X */
+.mobMenu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobMenu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobMenu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* =========================
+   MOBILE NAV MENU
+========================= */
 .navMenu {
     position: fixed;
-    top: 4.5rem;
+    top: 64px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 4.5rem);
-    background: var(--bg-navbar);
+    height: calc(100vh - 64px);
+    background: var(--bg-menu);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 2rem;
-    transform: translateX(100%); /* Start off-screen */
-    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    padding-top: 30px;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
     z-index: 1900;
 }
 
-/* Class to show the menu (apply this to navMenu when mobMenu is clicked) */
 .navMenu.open {
     transform: translateX(0);
 }
 
+/* menu items */
 .listItem {
-    color: var(--text-primary);
-    font-size: 1.5rem;
+    width: 90%;
+    text-align: center;
+    background: var(--bg-list-item);
+    padding: 16px;
+    border-radius: 12px;
+    margin: 10px 0;
+    font-size: 18px;
     font-weight: 600;
-    margin: 1.5rem 0;
-    cursor: pointer;
-    transition: color 0.3s ease;
+    color: var(--text-primary);
+    transition: var(--transition);
 }
 
 .listItem:hover {
-    color: var(--accent-color);
+    background: var(--accent-color);
+    color: white;
 }
 
-/* === Responsive Breakpoints === */
+/* =========================
+   📱 MOBILE BREAKPOINT
+========================= */
+@media (max-width: 768px) {
 
-@media screen and (max-width: 768px) {
-    .desktopMenu, .desktopMenuBtn {
+    .navbar {
+        height: 56px;
+        padding: 0 14px;
+    }
+
+    .desktopMenu,
+    .desktopMenuBtn {
         display: none;
     }
 
@@ -177,32 +225,35 @@
     }
 
     .logo {
-        height: 2rem; /* Smaller logo to fit controls */
+        height: 30px;
     }
 
-    /* Adjust the three lines into an 'X' if menu is open (Optional via JS) */
-    .mobMenu.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+    .themeToggle {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
     }
-    .mobMenu.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .mobMenu.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+
+    .navMenu {
+        top: 56px;
+        height: calc(100vh - 56px);
     }
 }
 
-/* Specifically for very small screens where song buttons exist */
-@media screen and (max-width: 400px) {
-    .navbar {
-        padding: 0 1rem;
-    }
-    
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 400px) {
+
     .logo {
-        display: none; /* Creative choice: Hide logo on tiny screens to prioritize navigation and music controls */
+        display: none;
     }
-    
+
+    .navbar {
+        padding: 0 10px;
+    }
+
     .navControls {
-        gap: 0.25rem;
+        gap: 6px;
     }
 }
