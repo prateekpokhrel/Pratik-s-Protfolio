@@ -1,192 +1,242 @@
+/* === Theme Variables === */
+:root {
+    --bg-navbar: rgba(18, 18, 18, 0.8);
+    --bg-menu: #282828;
+    --bg-list-item: #1e1e1e;
+    --text-primary: #ddd;
+    --text-active: #ffffff;
+    --accent-color: #800080; /* Purple from your screenshots */
+    --shadow: rgba(0, 0, 0, 0.7);
+    --transition: all 0.3s ease;
+}
+
+/* Day Mode Variables */
+.light-theme {
+    --bg-navbar: rgba(255, 255, 255, 0.9);
+    --bg-menu: #f0f0f0;
+    --bg-list-item: #ffffff;
+    --text-primary: #333;
+    --text-active: #000;
+    --accent-color: #a020f0;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
 /* === Navbar Container === */
 .navbar {
-   pointer-events:  auto; /* enable interactions */
-    height: 5rem;
-    width: 100vw;
-    max-width: 75rem;
-    margin: 1rem 2rem;
-    padding: 0rem 0rem;
+    pointer-events: auto;
+    height: 4.5rem;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: fixed;
     top: 0;
-    left: 7%;
-    z-index: 1100; /* increased z-index */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    left: 0;
+    z-index: 1100;
+    padding: 0 5%; /* Fluid padding instead of fixed margins */
+    box-sizing: border-box;
+    box-shadow: 0 2px 10px var(--shadow);
     backdrop-filter: saturate(180%) blur(10px);
+    background: var(--bg-navbar);
+    transition: var(--transition);
 }
 
 /* === Logo === */
 .logo {
-    object-fit: cover;
-    height: 6rem;
-    width: 5rem;
+    object-fit: contain;
+    height: 3.5rem; /* Adjusted for better fit */
+    width: auto;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
+
 .logo:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-/* === Desktop Menu Items === */
+/* === Desktop Menu === */
+.desktopMenu {
+    display: flex;
+    align-items: center;
+}
+
 .desktopMenuListItem {
-    margin: 0 1rem;
+    margin: 0 1.2rem;
     cursor: pointer;
-    color: #ddd;
+    color: var(--text-primary);
     font-weight: 500;
     position: relative;
-    padding-bottom: 0.5rem;
-    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    transition: var(--transition);
 }
 
 .desktopMenuListItem:hover {
-    color: #800080;
+    color: var(--accent-color);
 }
 
-/* Underline effect on hover */
+/* Underline effect */
 .desktopMenuListItem::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 3px;
+    height: 2px;
     bottom: 0;
     left: 0;
-    background-color: purple;
+    background-color: var(--accent-color);
     transition: width 0.3s ease;
-    border-radius: 3px;
 }
 
-.desktopMenuListItem:hover::after {
-    width: 100%;
-}
-
-/* === Active Menu Item === */
-.active {
-    color: purple;
-}
-
+.desktopMenuListItem:hover::after, 
 .active::after {
     width: 100%;
-    background-color: rgb(245, 241, 241);
+}
+
+.active {
+    color: var(--accent-color) !important;
+}
+
+/* === Theme Toggle Button === */
+.themeToggle {
+    background: none;
+    border: 1.5px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.themeToggle:hover {
+    background: var(--accent-color);
+    color: white;
 }
 
 /* === Desktop Menu Button === */
 .desktopMenuBtn {
-    background: #fff;
-    color: #000;
+    background: var(--accent-color);
+    color: white;
     border: none;
     border-radius: 2rem;
-    padding: 0.5rem 1.5rem;
+    padding: 0.6rem 1.5rem;
     cursor: pointer;
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: var(--transition);
 }
 
 .desktopMenuBtn:hover {
-    background: purple;
-    color: white;
-    transform: scale(1.05);
+    filter: brightness(1.2);
+    transform: translateY(-2px);
 }
 
-/* === Desktop Menu Button Icon === */
 .desktopMenuImg {
-    object-fit: cover;
     height: 1rem;
     width: 1rem;
     margin-left: 0.5rem;
-    filter: invert(0.2);
-    transition: filter 0.3s ease;
-}
-
-.desktopMenuBtn:hover .desktopMenuImg {
     filter: invert(1);
 }
 
 /* === Mobile Menu Icon === */
 .mobMenu {
     display: none;
-    height: 1.8rem;
-    width: 1.8rem;
+    height: 2rem;
+    width: 2rem;
     cursor: pointer;
-    filter: invert(1);
-    transition: transform 0.3s ease;
+    filter: var(--text-primary) === '#ddd' ? invert(1) : invert(0);
+    transition: var(--transition);
 }
 
-.mobMenu:hover {
-    transform: scale(1.1);
-}
-
-/* === Mobile Nav Menu === */
+/* === Mobile Nav Dropdown === */
 .navMenu {
-    position: fixed; /* changed from absolute */
-    top: 5.5rem; /* just below navbar (5rem height + 0.5rem margin) */
-    right: 2rem;
-    z-index: 1200; /* higher than navbar */
+    position: fixed;
+    top: 4.5rem;
+    right: 1rem;
+    z-index: 1200;
     display: flex;
     flex-direction: column;
     padding: 1rem 0;
-    min-width: 15rem;
-    background: #282828;
+    min-width: 14rem;
+    background: var(--bg-menu);
     border-radius: 1rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-    animation: fadeInScale 0.3s ease forwards;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease forwards;
 }
 
-/* Animation for menu appearance */
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* === Mobile Menu List Items === */
 .listItem {
-    color: purple;
-    padding: 0.75rem 2rem;
-    margin: 0.25rem 1rem;
-    background: #1e1e1e;
-    border-radius: 0.5rem;
+    color: var(--text-primary);
+    padding: 1rem 2rem;
+    margin: 0.2rem 1rem;
+    background: var(--bg-list-item);
+    border-radius: 0.7rem;
     cursor: pointer;
     font-weight: 500;
-    transition: background 0.3s ease, color 0.3s ease;
-    text-align: center;
-    user-select: none;
+    transition: var(--transition);
+    text-align: left;
 }
 
 .listItem:hover {
-    background: purple;
-    color: white;
+    background: var(--accent-color);
+    color: white !important;
 }
 
-/* === Responsive Styles === */
-@media screen and (max-width: 720px) {
+/* === Responsive Breakpoints === */
+
+/* Tablets/Small Desktops */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        padding: 0 3%;
+    }
+    .desktopMenuListItem {
+        margin: 0 0.8rem;
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 768px) {
     .mobMenu {
         display: block;
+        /* Ensure icon is visible against theme */
+        filter: brightness(0) invert(var(--mobile-icon-invert, 1));
     }
-    .desktopMenu, .desktopMenuBtn {
+    
+    .desktopMenu, 
+    .desktopMenuBtn {
         display: none;
     }
-}
 
-@media screen and (max-width: 400px) {
+    .logo {
+        height: 2.8rem;
+    }
+
+    .navbar {
+        height: 4rem;
+    }
+    
     .navMenu {
+        top: 4rem;
+        width: calc(100% - 2rem);
         right: 1rem;
-        min-width: 12rem;
-    }
-    .listItem {
-        margin: 0.25rem 0.5rem;
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
+        left: 1rem; /* Center mobile menu on very small screens */
     }
 }
 
-/* === End of Navbar Styles === */
+/* Extra Small Phones */
+@media screen and (max-width: 480px) {
+    .listItem {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
