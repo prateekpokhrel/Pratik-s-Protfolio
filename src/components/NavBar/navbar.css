@@ -23,7 +23,7 @@
 }
 
 /* =========================
-   NAVBAR CONTAINER
+   NAVBAR
 ========================= */
 .navbar {
     height: 64px;
@@ -74,15 +74,14 @@
     font-size: 15px;
     position: relative;
     padding: 6px 0;
-    transition: var(--transition);
     white-space: nowrap;
+    transition: var(--transition);
 }
 
 .desktopMenuListItem:hover {
     color: var(--accent-color);
 }
 
-/* underline animation */
 .desktopMenuListItem::after {
     content: '';
     position: absolute;
@@ -100,36 +99,34 @@
 }
 
 /* =========================
-   RIGHT CONTROLS (THEME + PLAY + CONTACT)
+   RIGHT CONTROLS
 ========================= */
 .navControls {
     display: flex;
     align-items: center;
-    gap: 14px; /* ← fixes spacing between buttons */
+    gap: 14px;
 }
 
-/* prevent squish */
-.navControls img,
-.navControls button {
+/* force each control to behave */
+.navControls > * {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
 }
 
 /* =========================
-   THEME TOGGLE BUTTON
+   THEME BUTTON
 ========================= */
 .themeToggle {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 1.5px solid var(--accent-color);
+    border: none;
     background: transparent;
     color: var(--accent-color);
     font-size: 16px;
     cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     transition: var(--transition);
 }
@@ -137,50 +134,66 @@
 .themeToggle:hover {
     background: var(--accent-color);
     color: #fff;
-    transform: translateY(-1px);
+}
+
+/* =========================
+   PLAY / MUSIC BUTTON
+========================= */
+.musicBtn,
+.playBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg-list-item);
+    cursor: pointer;
+}
+
+/* ONLY play icon size — not all images */
+.musicBtn img,
+.playBtn img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
 }
 
 /* =========================
    CONTACT BUTTON
 ========================= */
 .desktopMenuBtn {
-    display: inline-flex;        /* important */
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;                   /* increase slightly */
+    gap: 10px;
 
     padding: 8px 16px;
     border-radius: 999px;
     border: 1.5px solid transparent;
-
 
     background: transparent;
     color: var(--text-primary);
     cursor: pointer;
     font-size: 14px;
     line-height: 1;
+    white-space: nowrap;
 
-    white-space: nowrap;         /* prevents squeeze */
     transition: var(--transition);
 }
-
 
 .desktopMenuBtn:hover {
     background: var(--accent-color);
     color: #fff;
 }
 
+/* contact icon ONLY */
 .desktopMenuImg {
     width: 18px;
     height: 18px;
     object-fit: contain;
-    display: block;      /* ← fixes spacing */
-    flex-shrink: 0;
+    display: block;
 }
 
-
 /* =========================
-   MOBILE MENU ICON (IMAGE)
+   MOBILE MENU ICON
 ========================= */
 .mobMenu {
     display: none;
@@ -188,17 +201,15 @@
     height: 32px;
     object-fit: contain;
     cursor: pointer;
-    transition: var(--transition);
     opacity: 0.9;
 }
 
 .mobMenu:hover {
     transform: scale(1.08);
-    opacity: 1;
 }
 
 /* =========================
-   MOBILE NAV MENU PANEL
+   MOBILE NAV PANEL
 ========================= */
 .navMenu {
     position: fixed;
@@ -206,31 +217,26 @@
     left: 0;
     width: 100%;
     height: calc(100vh - 64px);
-
     background: var(--bg-menu);
     backdrop-filter: blur(10px);
 
     display: flex;
     flex-direction: column;
     align-items: center;
-
     padding: 28px 16px;
 
     transform: translateX(100%);
     transition: transform .35s ease;
-    z-index: 1900;
 }
 
 .navMenu.open {
     transform: translateX(0);
 }
 
-/* mobile menu items */
 .listItem {
     width: 100%;
     max-width: 420px;
     text-align: center;
-
     background: var(--bg-list-item);
     padding: 16px;
     border-radius: 14px;
@@ -239,18 +245,15 @@
     font-size: 17px;
     font-weight: 600;
     color: var(--text-primary);
-
-    transition: var(--transition);
 }
 
 .listItem:hover {
     background: var(--accent-color);
     color: #fff;
-    transform: translateY(-1px);
 }
 
 /* =========================
-   📱 MOBILE BREAKPOINT
+   MOBILE
 ========================= */
 @media (max-width: 768px) {
 
@@ -289,7 +292,7 @@
 }
 
 /* =========================
-   EXTRA SMALL DEVICES
+   EXTRA SMALL
 ========================= */
 @media (max-width: 400px) {
 
@@ -305,4 +308,3 @@
         gap: 8px;
     }
 }
-
