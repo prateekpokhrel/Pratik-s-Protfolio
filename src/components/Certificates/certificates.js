@@ -70,9 +70,9 @@ const Certificates = () => {
     return d;
   },[search,filter,sort,views]);
 
-  const top3 = [...certData]
-    .sort((a,b)=>(views[b.title]||0)-(views[a.title]||0))
-    .slice(0,3);
+//   const top3 = [...certData]
+//     .sort((a,b)=>(views[b.title]||0)-(views[a.title]||0))
+//     .slice(0,3);
 
   return (
     <section id="certificates">
