@@ -102,7 +102,7 @@ const Intro = () => {
         </p>
         <div className="btnGroup">
           <a
-            href="https://drive.google.com/file/d/1RASPH_Bs7I4NkvDLJlCiS8C8fyN7Huxo/view?usp=sharing"
+            href="https://drive.google.com/file/d/1lhosL4FhBZCnkTig589B9B2Tw4-gDMHk/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="btn"
@@ -161,3 +161,5 @@ const Intro = () => {
 };
 
 export default Intro;
+
+

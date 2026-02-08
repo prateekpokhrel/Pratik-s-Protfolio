@@ -1,192 +1,381 @@
-/* === Navbar Container === */
+/* =========================
+   THEME VARIABLES
+========================= */
+:root {
+    --bg-navbar: rgba(18, 18, 18, 0.9);
+    --bg-menu: #202020;
+    --bg-list-item: #1e1e1e;
+    --text-primary: #dddddd;
+    --text-active: #ffffff;
+    --accent-color: #b000ff;
+    --shadow: rgba(0, 0, 0, 0.55);
+    --transition: all 0.25s ease;
+}
+
+.light-theme {
+    --bg-navbar: rgba(255, 255, 255, 0.96);
+    --bg-menu: #ffffff;
+    --bg-list-item: #f3f3f3;
+    --text-primary: #333;
+    --text-active: #000;
+    --accent-color: #a020f0;
+    --shadow: rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
-   pointer-events:  auto; /* enable interactions */
-    height: 5rem;
-    width: 100vw;
-    max-width: 75rem;
-    margin: 1rem 2rem;
-    padding: 0rem 0rem;
+    height: 64px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 7%;
-    z-index: 1100; /* increased z-index */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    backdrop-filter: saturate(180%) blur(10px);
+
+    padding: 0 24px;
+    background: var(--bg-navbar);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 14px var(--shadow);
+    transition: var(--transition);
 }
 
-/* === Logo === */
+/* =========================
+   LOGO
+========================= */
 .logo {
-    object-fit: cover;
-    height: 6rem;
-    width: 5rem;
+    height: 38px;
+    width: auto;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform .25s;
+   object-fit: contain;
 }
+
 .logo:hover {
-    transform: scale(1.1);
-}
-
-/* === Desktop Menu Items === */
-.desktopMenuListItem {
-    margin: 0 1rem;
-    cursor: pointer;
-    color: #ddd;
-    font-weight: 500;
-    position: relative;
-    padding-bottom: 0.5rem;
-    transition: color 0.3s ease;
-}
-
-.desktopMenuListItem:hover {
-    color: #800080;
-}
-
-/* Underline effect on hover */
-.desktopMenuListItem::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    background-color: purple;
-    transition: width 0.3s ease;
-    border-radius: 3px;
-}
-
-.desktopMenuListItem:hover::after {
-    width: 100%;
-}
-
-/* === Active Menu Item === */
-.active {
-    color: purple;
-}
-
-.active::after {
-    width: 100%;
-    background-color: rgb(245, 241, 241);
-}
-
-/* === Desktop Menu Button === */
-.desktopMenuBtn {
-    background: #fff;
-    color: #000;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.5rem 1.5rem;
-    cursor: pointer;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.desktopMenuBtn:hover {
-    background: purple;
-    color: white;
     transform: scale(1.05);
 }
 
-/* === Desktop Menu Button Icon === */
-.desktopMenuImg {
-    object-fit: cover;
-    height: 1rem;
-    width: 1rem;
-    margin-left: 0.5rem;
-    filter: invert(0.2);
-    transition: filter 0.3s ease;
+/* =========================
+   DESKTOP MENU
+========================= */
+.desktopMenu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
 }
 
-.desktopMenuBtn:hover .desktopMenuImg {
-    filter: invert(1);
+.desktopMenuListItem {
+    cursor: pointer;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 15px;
+    position: relative;
+    padding: 6px 0;
+    white-space: nowrap;
+    transition: var(--transition);
 }
 
-/* === Mobile Menu Icon === */
+.desktopMenuListItem:hover {
+    color: var(--accent-color);
+}
+
+.desktopMenuListItem::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width .25s ease;
+}
+
+.desktopMenuListItem:hover::after,
+.active::after {
+    width: 100%;
+}
+
+/* =========================
+   RIGHT CONTROLS
+========================= */
+.navControls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* force each control to behave */
+.navControls > * {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* =========================
+   THEME BUTTON — ADVANCED
+========================= */
+.themeToggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+      border: 1.5px solid transparent;
+    cursor: pointer;
+   object-fit: contain;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    color: var(--accent-color);
+
+    /* glass look */
+    background: color-mix(in srgb, var(--accent-color) 12%, transparent);
+
+    /* soft glow */
+    box-shadow:
+        0 4px 14px rgba(0,0,0,0.25),
+        inset 0 0 0 1px color-mix(in srgb, var(--accent-color) 35%, transparent);
+
+    backdrop-filter: blur(6px);
+
+    transition:
+        transform .18s ease,
+        box-shadow .22s ease,
+        background .22s ease,
+        color .22s ease;
+}
+
+/* hover — lift + glow */
+.themeToggle:hover {
+    transform: translateY(-2px) scale(1.05);
+
+    background: var(--accent-color);
+    color: #fff;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.35),
+        0 0 0 6px color-mix(in srgb, var(--accent-color) 18%, transparent);
+}
+
+/* click press */
+.themeToggle:active {
+    transform: translateY(0) scale(0.96);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+/* keyboard focus */
+.themeToggle:focus-visible {
+    outline: none;
+    box-shadow:
+        0 0 0 3px color-mix(in srgb, var(--accent-color) 40%, transparent),
+        0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* icon micro-animation */
+.themeToggle span,
+.themeToggle svg {
+    transition: transform .25s ease;
+}
+
+.themeToggle:hover span,
+.themeToggle:hover svg {
+    transform: rotate(20deg);
+}
+
+/* =========================
+   PLAY / MUSIC BUTTON
+========================= */
+.musicBtn,
+.playBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    background: var(--bg-list-item);
+    cursor: pointer;
+}
+
+/* ONLY play icon size — not all images */
+.musicBtn img,
+.playBtn img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+
+
+/* =========================
+   MOBILE MENU ICON
+========================= */
 .mobMenu {
     display: none;
-    height: 1.8rem;
-    width: 1.8rem;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
     cursor: pointer;
-    filter: invert(1);
-    transition: transform 0.3s ease;
+    opacity: 0.9;
 }
 
 .mobMenu:hover {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
-/* === Mobile Nav Menu === */
+/* =========================
+   MOBILE NAV PANEL
+========================= */
 .navMenu {
-    position: fixed; /* changed from absolute */
-    top: 5.5rem; /* just below navbar (5rem height + 0.5rem margin) */
-    right: 2rem;
-    z-index: 1200; /* higher than navbar */
+    position: fixed;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 64px);
+    background: var(--bg-menu);
+    backdrop-filter: blur(10px);
+
     display: flex;
     flex-direction: column;
-    padding: 1rem 0;
-    min-width: 15rem;
-    background: #282828;
-    border-radius: 1rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
-    animation: fadeInScale 0.3s ease forwards;
+    align-items: center;
+    padding: 28px 16px;
+
+    transform: translateX(100%);
+    transition: transform .35s ease;
 }
 
-/* Animation for menu appearance */
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.navMenu.open {
+    transform: translateX(0);
 }
 
-/* === Mobile Menu List Items === */
 .listItem {
-    color: purple;
-    padding: 0.75rem 2rem;
-    margin: 0.25rem 1rem;
-    background: #1e1e1e;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background 0.3s ease, color 0.3s ease;
+    width: 100%;
+    max-width: 420px;
     text-align: center;
-    user-select: none;
+    background: var(--bg-list-item);
+    padding: 16px;
+    border-radius: 14px;
+    margin: 10px 0;
+
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
 .listItem:hover {
-    background: purple;
-    color: white;
+    background: var(--accent-color);
+    color: #fff;
 }
 
-/* === Responsive Styles === */
-@media screen and (max-width: 720px) {
-    .mobMenu {
-        display: block;
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 56px;
+        padding: 0 14px;
+        padding-left: max(14px, env(safe-area-inset-left));
+        padding-right: max(14px, env(safe-area-inset-right));
     }
-    .desktopMenu, .desktopMenuBtn {
+
+    /* hide desktop links */
+    .desktopMenu {
         display: none;
     }
-}
 
-@media screen and (max-width: 400px) {
+    /* show hamburger */
+    .mobMenu {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+
+        cursor: pointer;
+        transition: transform .18s ease, background .18s ease;
+    }
+
+    .mobMenu:active {
+        transform: scale(0.92);
+        background: var(--bg-list-item);
+    }
+
+    /* logo smaller */
+    .logo {
+        height: 30px;
+    }
+
+    /* theme button touch size */
+    .themeToggle {
+        width: 34px;
+        height: 34px;
+        font-size: 15px;
+    }
+
+    /* controls spacing */
+    .navControls {
+        gap: 10px;
+    }
+
+    /* =========================
+       MOBILE MENU PANEL
+    ========================= */
     .navMenu {
-        right: 1rem;
-        min-width: 12rem;
+        top: 56px;
+        height: calc(100vh - 56px);
+        padding-bottom: env(safe-area-inset-bottom);
+
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
     }
+
+    /* mobile menu items — better tap targets */
     .listItem {
-        margin: 0.25rem 0.5rem;
-        padding: 0.75rem 1rem;
-        font-size: 0.9rem;
+        min-height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
-/* === End of Navbar Styles === */
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+@media (max-width: 400px) {
+
+    /* hide logo to free space */
+    .logo {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0 10px;
+    }
+
+    .navControls {
+        gap: 8px;
+    }
+
+    .themeToggle {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .mobMenu {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+
+
