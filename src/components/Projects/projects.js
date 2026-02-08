@@ -9,6 +9,7 @@ const Projects = () => {
     return (
         <section id="projects">
             <span className="projectsTitle">PROJECTS</span>
+           
             <span className="projectsDesc">
                 Skilled and passionate Java Full Stack Developer with hands-on experience in real-world projects.
                 Each project reflects my focus on clean code, scalability, and user-friendly design.
