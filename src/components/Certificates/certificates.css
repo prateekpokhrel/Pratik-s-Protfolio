@@ -1,13 +1,21 @@
+/* =========================
+   Base Section
+========================= */
+
 #certificates {
-  padding: 60px 20px;
+  padding: clamp(40px, 6vw, 80px) 20px;
   background-color: #000;
   color: #fff;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
 }
 
+/* =========================
+   Title + Description
+========================= */
+
 .certificatesTitle {
-  font-size: 48px;
+  font-size: clamp(28px, 5vw, 48px);
   font-weight: bold;
   color: purple;
   margin-bottom: 10px;
@@ -15,31 +23,42 @@
 }
 
 .certificatesDesc {
-  font-size: 18px;
+  font-size: clamp(15px, 2.5vw, 18px);
   max-width: 850px;
   margin: 0 auto 40px;
   color: #ccc;
   line-height: 1.6;
   display: block;
+  padding: 0 10px;
 }
+
+/* =========================
+   Bars Container
+========================= */
 
 .certificatesBars {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: clamp(20px, 4vw, 30px);
   align-items: center;
+  width: 100%;
 }
+
+/* =========================
+   Certificate Card
+========================= */
 
 .certificatesBar {
   display: flex;
   align-items: center;
   background-color: #1a1a1a;
   border-radius: 15px;
-  padding: 20px;
-  width: 90%;
+  padding: clamp(16px, 3vw, 24px);
+  width: 95%;
   max-width: 900px;
   box-shadow: 0 0 10px rgba(153, 0, 204, 0.4);
   transition: 0.3s ease;
+  gap: 20px;
 }
 
 .certificatesBar:hover {
@@ -47,34 +66,46 @@
   transform: translateY(-5px);
 }
 
+/* =========================
+   Image
+========================= */
+
 .certificatesBarImg {
-  width: 90px;
-  height: 90px;
+  width: clamp(70px, 12vw, 100px);
+  height: clamp(70px, 12vw, 100px);
   object-fit: cover;
   border-radius: 10px;
-  margin-right: 25px;
   border: 2px solid #fff;
   flex-shrink: 0;
   box-shadow: 0 0 10px white, 0 0 15px purple;
 }
 
+/* =========================
+   Text Area
+========================= */
+
 .certificatesBarText {
   flex: 1;
   text-align: left;
+  min-width: 0;
 }
 
 .certificatesBarText h2 {
-  font-size: 22px;
+  font-size: clamp(18px, 3vw, 22px);
   color: #fff;
   margin-bottom: 10px;
 }
 
 .certificatesBarText p {
-  font-size: 16px;
+  font-size: clamp(14px, 2.5vw, 16px);
   color: #ccc;
   margin-bottom: 15px;
   line-height: 1.5;
 }
+
+/* =========================
+   Button
+========================= */
 
 .projectLink {
   display: inline-block;
@@ -86,25 +117,60 @@
   font-weight: bold;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  font-size: clamp(13px, 2.5vw, 15px);
 }
 
 .projectLink:hover {
   background-color: #bb00ff;
 }
 
-/* Responsive Design */
+/* =========================
+   Tablet Responsive
+========================= */
+
+@media (max-width: 992px) {
+  .certificatesBar {
+    width: 96%;
+  }
+}
+
+/* =========================
+   Mobile Responsive
+========================= */
+
 @media (max-width: 768px) {
+
+  #certificates {
+    padding: 40px 12px;
+  }
+
   .certificatesBar {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
 
-  .certificatesBarImg {
-    margin: 0 0 15px 0;
-  }
-
   .certificatesBarText {
     text-align: center;
+  }
+
+  .certificatesBarImg {
+    margin-bottom: 12px;
+  }
+}
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 420px) {
+
+  .certificatesBar {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .projectLink {
+    width: 100%;
   }
 }
